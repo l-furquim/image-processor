@@ -28,13 +28,13 @@ class ImageServiceImpl(
             data = data,
             UUID.randomUUID().toString()
         )
+
         val imageEntity = imageRepository.save(image)
 
         uploadImageToBucket(file, imageEntity.path)
 
         return ImageAndMetadataDto(
-            imageEntity,
-            file
+            imageEntity
         )
     }
 

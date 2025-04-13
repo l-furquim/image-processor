@@ -3,7 +3,6 @@ package com.lucas.image_processor.model
 import com.lucas.image_processor.dto.image.ImageMetadataDto
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
-import java.io.File
 
 @Document(collection = "images")
 data class Image (
@@ -22,7 +21,7 @@ data class Image (
             width = data.width,
             height = data.height,
             format = data.format,
-            path = id + File.pathSeparator + data.name
+            path = id + "/" + data.name
         )
 
     }
